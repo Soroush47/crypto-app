@@ -1,0 +1,16 @@
+.coin {
+    display: flex;
+    align-items: center;
+}
+
+.coin img {
+    height: 25px;
+    padding-right: 7px;
+    cursor: pointer;
+}
+
+.coin span {
+    cursor: pointer;
+    padding-right: 6px;
+    color: #929292;
+}

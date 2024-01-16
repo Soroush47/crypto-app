@@ -1,0 +1,13 @@
+.container {
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 80px;
+    background-color: #007c74;
+    color: #fff;
+}
+
+.container span {
+    color: #131315;
+    font-weight: 500;
+}
