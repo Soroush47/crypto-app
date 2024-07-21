@@ -1,6 +1,9 @@
 import { useState } from "react";
-import styles from "./Chart.module.css";
 import { RotatingLines } from "react-loader-spinner";
+
+import styles from "./Chart.module.css";
+import { convertData } from "../../helpers/convertData";
+
 import {
     CartesianGrid,
     Legend,
@@ -11,7 +14,6 @@ import {
     XAxis,
     YAxis,
 } from "recharts";
-import { convertData } from "../../helpers/convertData";
 
 function Chart({
     chart: {

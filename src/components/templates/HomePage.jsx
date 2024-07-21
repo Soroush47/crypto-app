@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
+import { RotatingLines } from "react-loader-spinner";
 
 import CoinsTable from "../modules/CoinsTable";
 import Pagination from "../modules/Pagination";
-import Footer from "../modules/Footer";
-import Header from "../modules/Header";
 import Search from "../modules/Search";
+import Chart from "../modules/Chart";
 
 import { getCoinsList } from "../../services/cryptoApi";
-import Chart from "../modules/Chart";
 
 function HomePage() {
     const [coins, setCoins] = useState([]);
@@ -15,7 +14,7 @@ function HomePage() {
     const [vsCurrency, setVsCurrency] = useState("usd");
     const [loading, setLoading] = useState(true);
     const [chart, setChart] = useState({
-        coin: { name: "", image: "", symbol: "", price: "", ath: "", market_cap: "" },
+        coin: {},
         chartData: "",
     });
 
@@ -37,24 +36,33 @@ function HomePage() {
     return (
         <>
             <div>
-                <Header />
                 <Search
                     vsCurrency={vsCurrency}
                     setVsCurrency={setVsCurrency}
                     setChart={setChart}
                 />
-                <CoinsTable
-                    coins={coins}
-                    vsCurrency={vsCurrency}
-                    loading={loading}
-                    setChart={setChart}
-                />
+                {loading ? (
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            height: "600px",
+                        }}
+                    >
+                        <RotatingLines strokeColor="#007c74" strokeWidth="2" />
+                    </div>
+                ) : (
+                    <CoinsTable
+                        coins={coins}
+                        vsCurrency={vsCurrency}
+                        setChart={setChart}
+                    />
+                )}
                 <Pagination page={page} setPage={setPage} />
                 {chart.chartData && (
                     <Chart chart={chart} setChart={setChart} vsCurrency={vsCurrency} />
                 )}
             </div>
-            <Footer />
         </>
     );
 }

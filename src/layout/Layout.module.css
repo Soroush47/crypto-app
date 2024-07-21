@@ -1,4 +1,4 @@
-.container {
+.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,7 +9,21 @@
     margin-bottom: 160px;
 }
 
-.container a {
+.header a {
     color: #1f1f1f;
+    font-weight: 500;
+}
+
+.footer {
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 80px;
+    background-color: #007c74;
+    color: #fff;
+}
+
+.footer span {
+    color: #131315;
     font-weight: 500;
 }

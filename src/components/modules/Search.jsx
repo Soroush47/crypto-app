@@ -13,13 +13,13 @@ function Search({ vsCurrency, setVsCurrency, setChart }) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const controler = new AbortController();
+        // const controler = new AbortController();
         setSearchedCoins([{}]);
 
         const search = async () => {
             try {
                 console.log("is fetching");
-                const res = await fetch(searchCoins(text), { signal: controler.signal });
+                const res = await fetch(searchCoins(text));
                 const json = await res.json();
                 setSearchedCoins(json.coins);
                 setIsLoading(false);
@@ -27,19 +27,6 @@ function Search({ vsCurrency, setVsCurrency, setChart }) {
                 err.name !== "AbortError" && alert(err.message);
             }
         };
-
-        // const search = debounce(async () => {
-        //     try {
-        //         console.log("is fetching");
-        //         setIsLoading(true);
-        //         const res = await fetch(searchCoins(text), { signal: controler.signal });
-        //         const json = await res.json();
-        //         console.log(text);
-        //         setIsLoading(false);
-        //     } catch (err) {
-        //         err.name !== "AbortError" && alert(err.message);
-        //     }
-        // }, 2000);
 
         const timeOut =
             text &&
@@ -51,8 +38,8 @@ function Search({ vsCurrency, setVsCurrency, setChart }) {
         // text && search();
 
         return () => {
-            controler.abort();
-            timeOut && clearTimeout(timeOut);
+            // controler.abort();
+            clearTimeout(timeOut);
         };
     }, [text]);
 
