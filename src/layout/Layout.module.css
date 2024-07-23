@@ -27,3 +27,13 @@
     color: #131315;
     font-weight: 500;
 }
+
+@media (max-width: 600px){
+    .header h1{
+        font-size: 21px;
+    }
+
+    .header p{
+        font-size: 12px;
+    }
+}

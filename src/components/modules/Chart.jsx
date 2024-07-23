@@ -63,12 +63,12 @@ function Chart({
                         <img src={image} alt={symbol} />
                         <span>{name}</span>
                     </div>
-                    <ResponsiveContainer width="100%" height="60%">
+                    <ResponsiveContainer height="60%" width="100%">
                         <LineChart
                             width="max-content"
-                            height="300px"
+                            // height="100px"
                             data={convertData(chartData[type], type)}
-                            margin={{ left: 60 }}
+                            margin={{ left: 40 }}
                         >
                             <CartesianGrid stroke="#3a3a3a" strokeWidth="2px" />
                             <XAxis dataKey="date" hide />
@@ -88,20 +88,20 @@ function Chart({
                     </ResponsiveContainer>
                     <div className={styles.buttons}>
                         <button
-                            className={
+                            className={`${styles.topButton} ${
                                 type === "prices" ? styles.selected : styles.unSelected
-                            }
+                            }`}
                             value="prices"
                             onClick={e => setType(e.target.value)}
                         >
                             Prices
                         </button>
                         <button
-                            className={
+                            className={`${styles.topButton} ${
                                 type === "market_caps"
                                     ? styles.selected
                                     : styles.unSelected
-                            }
+                            }`}
                             value="market_caps"
                             onClick={e => setType(e.target.value)}
                         >

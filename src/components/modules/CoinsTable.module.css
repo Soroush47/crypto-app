@@ -23,13 +23,24 @@
 }
 
 @media (max-width: 600px) {
-    .table{
+    .table {
         display: block;
         overflow-x: scroll;
     }
 
     .table td,
     .table th {
-        padding: 0 10px
+        padding: 10px 10px;
+    }
+
+    .table th {
+        font-size: 1.1rem;
+        text-align: left;
+    }
+
+    .table tbody tr {
+        font-weight: 500;
+        font-size: 1rem;
+        width: 100%;
     }
 }
