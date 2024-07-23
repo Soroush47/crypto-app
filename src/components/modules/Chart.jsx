@@ -63,29 +63,34 @@ function Chart({
                         <img src={image} alt={symbol} />
                         <span>{name}</span>
                     </div>
-                    <ResponsiveContainer height="60%" width="100%">
-                        <LineChart
-                            width="max-content"
-                            // height="100px"
-                            data={convertData(chartData[type], type)}
-                            margin={{ left: 40 }}
+                    <div className={styles.chart}>
+                        <ResponsiveContainer
+                            className={styles.chartContainer}
+                            width="100%"
+                            // height="60%"
                         >
-                            <CartesianGrid stroke="#3a3a3a" strokeWidth="2px" />
-                            <XAxis dataKey="date" hide />
-                            <YAxis domain={["auto", "auto"]} />
-                            <Tooltip
-                                contentStyle={{
-                                    backgroundColor: "#f4f5e4",
-                                    borderRadius: "5px",
-                                    height: "70px",
-                                    width: "250px",
-                                    color: "black",
-                                }}
-                            />
-                            <Legend />
-                            <Line type="monotone" dataKey={type} stroke="#02b4a8" />
-                        </LineChart>
-                    </ResponsiveContainer>
+                            <LineChart
+                                width="max-content"
+                                height="300px"
+                                data={convertData(chartData[type], type)}
+                            >
+                                <CartesianGrid stroke="#3a3a3a" strokeWidth="2px" />
+                                <XAxis dataKey="date" hide />
+                                <YAxis domain={["auto", "auto"]} />
+                                <Tooltip
+                                    contentStyle={{
+                                        backgroundColor: "#f4f5e4",
+                                        borderRadius: "5px",
+                                        height: "70px",
+                                        width: "250px",
+                                        color: "black",
+                                    }}
+                                />
+                                <Legend />
+                                <Line type="monotone" dataKey={type} stroke="#02b4a8" />
+                            </LineChart>
+                        </ResponsiveContainer>
+                    </div>
                     <div className={styles.buttons}>
                         <button
                             className={`${styles.topButton} ${

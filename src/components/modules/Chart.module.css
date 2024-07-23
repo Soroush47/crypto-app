@@ -37,8 +37,17 @@
     background-color: #141414eb;
     border: 3px solid #303030;
     border-radius: 25px;
-    height: 520px;
+    height: max-content;
     padding: 20px 20px;
+}
+
+.chart {
+    height: 300px;
+}
+
+.chartContainer {
+    max-height: 300px;
+    height: 60%;
 }
 
 .coin {
@@ -103,14 +112,9 @@
 
 @media (max-width: 600px) {
     .items {
-        height: max-content;
-    }
-    .chart {
-        margin-left: 0px;
+        /* height: fit-content; */
     }
     .buttons {
-        /* display: flex;
-        flex-wrap: wrap; */
         margin-right: 0px;
     }
     .buttons button {
