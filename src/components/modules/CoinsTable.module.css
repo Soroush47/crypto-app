@@ -1,5 +1,5 @@
 .table {
-    margin-top: 50px;
+    margin-top: 40px;
     width: 100%;
     min-height: 600px;
     border-collapse: collapse;
@@ -23,9 +23,11 @@
 }
 
 @media (max-width: 600px) {
+
     .table {
         display: block;
         overflow-x: scroll;
+        margin-top: 50px;
     }
 
     .table td,
