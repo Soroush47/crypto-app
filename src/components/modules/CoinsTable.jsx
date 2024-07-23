@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import CoinCard from "./CoinCard";
 import styles from "./CoinsTable.module.css";
 
 function CoinsTable({ coins, vsCurrency, setChart }) {
+    useEffect(() => {
+        window.scroll({ top: 0, left: 0, behavior: "smooth" });
+    }, []);
+
     return (
         <table className={styles.table}>
             <thead>

@@ -17,6 +17,7 @@ function HomePage() {
         coin: {},
         chartData: "",
     });
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -33,37 +34,44 @@ function HomePage() {
         getData();
     }, [vsCurrency, page]);
 
+    useEffect(() => {
+        const toggleVisibility = () => {
+            setIsVisible(window.scrollY > 200);
+        };
+
+        window.addEventListener("scroll", toggleVisibility);
+
+        return () => {
+            window.removeEventListener("scroll", toggleVisibility);
+        };
+    }, []);
+
     return (
-        <>
-            <div>
-                <Search
-                    vsCurrency={vsCurrency}
-                    setVsCurrency={setVsCurrency}
-                    setChart={setChart}
-                />
-                {loading ? (
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            height: "600px",
-                        }}
-                    >
-                        <RotatingLines strokeColor="#007c74" strokeWidth="2" />
-                    </div>
-                ) : (
-                    <CoinsTable
-                        coins={coins}
-                        vsCurrency={vsCurrency}
-                        setChart={setChart}
-                    />
-                )}
-                <Pagination page={page} setPage={setPage} />
-                {chart.chartData && (
-                    <Chart chart={chart} setChart={setChart} vsCurrency={vsCurrency} />
-                )}
-            </div>
-        </>
+        <div>
+            {/* {isVisible && } */}
+            <Search
+                vsCurrency={vsCurrency}
+                setVsCurrency={setVsCurrency}
+                setChart={setChart}
+            />
+            {loading ? (
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        height: "600px",
+                    }}
+                >
+                    <RotatingLines strokeColor="#007c74" strokeWidth="2" />
+                </div>
+            ) : (
+                <CoinsTable coins={coins} vsCurrency={vsCurrency} setChart={setChart} />
+            )}
+            <Pagination page={page} setPage={setPage} />
+            {chart.chartData && (
+                <Chart chart={chart} setChart={setChart} vsCurrency={vsCurrency} />
+            )}
+        </div>
     );
 }
 
