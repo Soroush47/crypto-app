@@ -111,9 +111,6 @@
 }
 
 @media (max-width: 600px) {
-    .items {
-        /* height: fit-content; */
-    }
     .buttons {
         margin-right: 0px;
     }
