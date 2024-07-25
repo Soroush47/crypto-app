@@ -1,7 +1,7 @@
 .container {
     position: fixed;
-    top: 81%;
-    left: 93%;
+    bottom: 12%;
+    right: 5%;
 }
 
 .icon {
@@ -15,12 +15,4 @@
 
 .icon:hover {
     opacity: 60%;
-}
-
-@media (max-width: 900px) {
-    .container {
-        top: 79%;
-        left: 88%;
-        opacity: 75%;
-    }
 }
