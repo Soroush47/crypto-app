@@ -1,0 +1,26 @@
+.container {
+    position: fixed;
+    top: 81%;
+    left: 93%;
+}
+
+.icon {
+    border-radius: 50%;
+    background-color: #007c74;
+    color: black;
+    padding: 6px;
+    cursor: pointer;
+    opacity: 80%;
+}
+
+.icon:hover {
+    opacity: 60%;
+}
+
+@media (max-width: 900px) {
+    .container {
+        top: 79%;
+        left: 88%;
+        opacity: 75%;
+    }
+}

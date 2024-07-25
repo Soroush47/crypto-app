@@ -7,6 +7,7 @@ import Search from "../modules/Search";
 import Chart from "../modules/Chart";
 
 import { getCoinsList } from "../../services/cryptoApi";
+import ScrollToTop from "../../shared/ScrollToTop";
 
 function HomePage() {
     const [coins, setCoins] = useState([]);
@@ -36,7 +37,7 @@ function HomePage() {
 
     useEffect(() => {
         const toggleVisibility = () => {
-            setIsVisible(window.scrollY > 200);
+            setIsVisible(window.scrollY > 180);
         };
 
         window.addEventListener("scroll", toggleVisibility);
@@ -48,7 +49,7 @@ function HomePage() {
 
     return (
         <div>
-            {/* {isVisible && } */}
+            {isVisible && <ScrollToTop />}
             <Search
                 vsCurrency={vsCurrency}
                 setVsCurrency={setVsCurrency}
