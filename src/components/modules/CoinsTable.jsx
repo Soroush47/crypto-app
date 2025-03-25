@@ -6,7 +6,7 @@ function CoinsTable({ coins, vsCurrency, setChart }) {
     useEffect(() => {
         window.scroll({ top: 0, left: 0, behavior: "smooth" });
     }, []);
-
+    console.log({ coins });
     return (
         <table className={styles.table}>
             <thead>
